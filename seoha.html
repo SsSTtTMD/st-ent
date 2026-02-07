@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>서하 | NewBit</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+  color:#fff;
+}
+
+/* ================= 배경 모션 (강조 버전) ================= */
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:60px 16px 120px;
+
+  background:linear-gradient(
+    140deg,
+    #001e3a,
+    #003b75,
+    #005aa7,
+    #003b75,
+    #001e3a
+  );
+
+  background-size:500% 500%;
+  animation:bgmove 14s ease-in-out infinite;
+}
+
+@keyframes bgmove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ================= 레이아웃 ================= */
+.container{
+  width:100%;
+  max-width:520px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:26px;
+}
+
+/* ================= 사진 ================= */
+.profile-img{
+  width:100%;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 0 25px rgba(0,191,255,.35);
+}
+
+.profile-img img{
+  width:100%;
+  display:block;
+}
+
+/* ================= 이름 ================= */
+.name{
+  font-size:30px;
+  font-weight:bold;
+  letter-spacing:3px;
+  margin-top:6px;
+}
+
+.sub{
+  font-size:14px;
+  opacity:.6;
+  letter-spacing:4px;
+}
+
+.role{
+  text-align:center;
+  font-size:14px;
+  letter-spacing:3px;
+  margin-top:10px;
+  opacity:.85;
+}
+
+/* ================= 버튼 ================= */
+.btn{
+  width:100%;
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
+  padding:16px 18px;
+  border-radius:12px;
+  font-weight:bold;
+  position:relative;
+  cursor:pointer;
+  overflow:hidden;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  transition:.2s;
+  box-shadow:0 0 15px rgba(0,191,255,.4);
+}
+
+/* hover */
+.btn:hover{
+  transform:scale(1.03);
+}
+
+/* click */
+.btn:active{
+  transform:scale(.97);
+}
+
+/* ✦ 반짝이 */
+.star{
+  opacity:.85;
+  animation:blink 2.3s infinite;
+}
+
+@keyframes blink{
+  0%,100%{opacity:.3;}
+  50%{opacity:1;}
+}
+
+/* ================= 펼침 영역 ================= */
+.panel{
+  width:100%;
+  background:#ffffff;
+  color:#000;
+  border-radius:12px;
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .45s ease;
+}
+
+.panel-content{
+  padding:14px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  font-size:14px;
+  color:#000;
+}
+
+.row{
+  display:flex;
+  gap:8px;
+}
+
+.label{
+  font-weight:bold;
+  min-width:55px;
+  color:#0080FF;
+}
+
+/* ================= 안내 ================= */
+.notice{
+  margin-top:24px;
+  font-size:12px;
+  opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="profile-img">
+  <img src="images/Seoha.jpeg">
+</div>
+
+<div class="name">서하</div>
+<div class="sub">SE O H A</div>
+<div class="role">LEADER<br>LEAD VOCAL | LEAD DANCER</div>
+
+
+<!-- 프로필 -->
+<div class="btn" onclick="togglePanel(this)">
+  ▎프로필
+  <span class="star">✦</span>
+</div>
+
+<div class="panel">
+  <div class="panel-content">
+
+    <div class="row"><div class="label">본명</div>송서하 (宋誓夏, Song Seoha)</div>
+
+    <div class="row"><div class="label">출생</div>
+      2003년 1월 3일 (23세)<br>
+      세종특별자치시
+    </div>
+
+    <div class="row"><div class="label">본관</div>은진 송씨 (恩津 宋氏)</div>
+    <div class="row"><div class="label">신체</div>176cm</div>
+
+  </div>
+</div>
+
+
+<!-- 인터뷰 -->
+<div class="btn">▎인터뷰 <span class="star">✦</span></div>
+
+<!-- 개인 기록 -->
+<div class="btn">▎개인 기록 <span class="star">✦</span></div>
+
+<div class="notice">✦를 클릭하여 정보를 확인하세요</div>
+
+</div>
+
+<script>
+function togglePanel(btn){
+  const panel = btn.nextElementSibling;
+  if(panel.style.maxHeight){
+    panel.style.maxHeight = null;
+  }else{
+    panel.style.maxHeight = panel.scrollHeight + "px";
+  }
+}
+</script>
+
+</body>
+</html>
