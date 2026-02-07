@@ -14,7 +14,7 @@
   color:#fff;
 }
 
-/* ================= 배경 모션 (강조 버전) ================= */
+/* ================= 배경 (더 티나는 모션) ================= */
 body{
   min-height:100vh;
   display:flex;
@@ -23,15 +23,14 @@ body{
 
   background:linear-gradient(
     140deg,
-    #001e3a,
-    #003b75,
-    #005aa7,
-    #003b75,
-    #001e3a
+    #00769D,
+    #004F9D,
+    #00769D,
+    #004F9D
   );
 
-  background-size:500% 500%;
-  animation:bgmove 14s ease-in-out infinite;
+  background-size:600% 600%;
+  animation:bgmove 10s ease-in-out infinite;
 }
 
 @keyframes bgmove{
@@ -47,15 +46,15 @@ body{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:26px;
+  gap:18px;
 }
 
 /* ================= 사진 ================= */
 .profile-img{
   width:100%;
-  border-radius:16px;
+  border-radius:10px; /* 더 각지게 */
   overflow:hidden;
-  box-shadow:0 0 25px rgba(0,191,255,.35);
+  box-shadow:0 0 25px rgba(0,191,255,.4);
 }
 
 .profile-img img{
@@ -67,57 +66,51 @@ body{
 .name{
   font-size:30px;
   font-weight:bold;
-  letter-spacing:3px;
-  margin-top:6px;
 }
 
 .sub{
+  color:#FFEFA3;
+  letter-spacing:3px; /* 일정 */
   font-size:14px;
-  opacity:.6;
-  letter-spacing:4px;
+  margin-top:4px;
 }
 
 .role{
   text-align:center;
   font-size:14px;
-  letter-spacing:3px;
   margin-top:10px;
-  opacity:.85;
+  letter-spacing:2px;
+}
+
+.role strong{
+  font-weight:900;
 }
 
 /* ================= 버튼 ================= */
 .btn{
   width:100%;
-  background:linear-gradient(90deg,#00BFFF,#0080FF);
   padding:16px 18px;
   border-radius:12px;
-  font-weight:bold;
-  position:relative;
-  cursor:pointer;
-  overflow:hidden;
+
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
 
   display:flex;
   justify-content:space-between;
   align-items:center;
 
+  font-weight:bold;
+  cursor:pointer;
+
   transition:.2s;
   box-shadow:0 0 15px rgba(0,191,255,.4);
 }
 
-/* hover */
-.btn:hover{
-  transform:scale(1.03);
-}
+.btn:hover{ transform:scale(1.03); }
+.btn:active{ transform:scale(.97); }
 
-/* click */
-.btn:active{
-  transform:scale(.97);
-}
-
-/* ✦ 반짝이 */
 .star{
-  opacity:.85;
-  animation:blink 2.3s infinite;
+  font-size:24px; /* 더 큼 */
+  animation:blink 2s infinite;
 }
 
 @keyframes blink{
@@ -125,42 +118,54 @@ body{
   50%{opacity:1;}
 }
 
-/* ================= 펼침 영역 ================= */
+/* 버튼 간격 통일 */
+.btn + .btn{
+  margin-top:16px;
+}
+
+/* ================= 프로필 패널 ================= */
 .panel{
   width:100%;
-  background:#ffffff;
-  color:#000;
-  border-radius:12px;
   overflow:hidden;
   max-height:0;
   transition:max-height .45s ease;
 }
 
-.panel-content{
-  padding:14px 18px;
+.profile-card{
+  margin-top:12px;
+  background:#fff;
+  border-radius:12px;
+  padding:16px;
   display:flex;
   flex-direction:column;
   gap:10px;
-  font-size:14px;
   color:#000;
 }
 
 .row{
   display:flex;
   gap:8px;
+  align-items:flex-start;
+  font-size:14px;
+  color:#000;
 }
 
+/* 라벨을 NEW 태그 스타일 */
 .label{
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
+  padding:4px 10px;
+  border-radius:8px;
   font-weight:bold;
-  min-width:55px;
-  color:#0080FF;
+  color:#fff;
+  font-size:12px;
+  white-space:nowrap;
 }
 
 /* ================= 안내 ================= */
 .notice{
-  margin-top:24px;
+  margin-top:26px;
   font-size:12px;
-  opacity:.6;
+  opacity:.7;
 }
 </style>
 </head>
@@ -174,9 +179,12 @@ body{
 </div>
 
 <div class="name">서하</div>
-<div class="sub">SE O H A</div>
-<div class="role">LEADER<br>LEAD VOCAL | LEAD DANCER</div>
+<div class="sub">SEOHA</div>
 
+<div class="role">
+<strong>LEADER</strong><br>
+LEAD VOCAL | LEAD DANCER
+</div>
 
 <!-- 프로필 -->
 <div class="btn" onclick="togglePanel(this)">
@@ -185,26 +193,33 @@ body{
 </div>
 
 <div class="panel">
-  <div class="panel-content">
+  <div class="profile-card">
 
-    <div class="row"><div class="label">본명</div>송서하 (宋誓夏, Song Seoha)</div>
+    <div class="row">
+      <div class="label">본명</div>
+      송서하 (宋誓夏, Song Seoha)
+    </div>
 
-    <div class="row"><div class="label">출생</div>
+    <div class="row">
+      <div class="label">출생</div>
       2003년 1월 3일 (23세)<br>
       세종특별자치시
     </div>
 
-    <div class="row"><div class="label">본관</div>은진 송씨 (恩津 宋氏)</div>
-    <div class="row"><div class="label">신체</div>176cm</div>
+    <div class="row">
+      <div class="label">본관</div>
+      은진 송씨 (恩津 宋氏)
+    </div>
+
+    <div class="row">
+      <div class="label">신체</div>
+      176cm
+    </div>
 
   </div>
 </div>
 
-
-<!-- 인터뷰 -->
 <div class="btn">▎인터뷰 <span class="star">✦</span></div>
-
-<!-- 개인 기록 -->
 <div class="btn">▎개인 기록 <span class="star">✦</span></div>
 
 <div class="notice">✦를 클릭하여 정보를 확인하세요</div>
@@ -214,11 +229,8 @@ body{
 <script>
 function togglePanel(btn){
   const panel = btn.nextElementSibling;
-  if(panel.style.maxHeight){
-    panel.style.maxHeight = null;
-  }else{
-    panel.style.maxHeight = panel.scrollHeight + "px";
-  }
+  panel.style.maxHeight =
+    panel.style.maxHeight ? null : panel.scrollHeight + "px";
 }
 </script>
 
