@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>IN FRONT OF | ST ENTERTAINMENT</title>
 
 <style>
@@ -13,12 +14,25 @@
   font-family:Arial, sans-serif;
 }
 
-/* ✅ 흑백 그라데이션 + 움직임 유지 */
+/* ================= 흑백 배경 모션 ================= */
 body{
-  background:linear-gradient(120deg,#111,#666,#222);
-  background-size:300% 300%;
-  animation:bgmove 14s ease infinite;
-  color:#111;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:40px 16px 120px;
+  color:#fff;
+
+  background:linear-gradient(
+    140deg,
+    #111,
+    #2a2a2a,
+    #444,
+    #2a2a2a,
+    #111
+  );
+
+  background-size:500% 500%;
+  animation:bgmove 18s ease-in-out infinite;
 }
 
 @keyframes bgmove{
@@ -28,158 +42,268 @@ body{
 }
 
 .container{
-  max-width:520px;
-  margin:auto;
-  padding-bottom:80px;
-}
-
-/* =======================
-   상단 로고 (박스 유지 + 이미지만 확대)
-======================= */
-.header{
-  background:rgba(255,255,255,0.9);
-  padding:14px 0;
-  text-align:center;
-}
-
-.header img{
-  height:56px;   /* 🔥 기존보다 확대 */
-  object-fit:contain;
-}
-
-/* =======================
-   그룹 소개
-======================= */
-.info{
-  margin:28px 18px;
+  width:100%;
+  max-width:1050px;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:34px;
 }
 
-.info-row{
-  background:rgba(255,255,255,0.9);
-  padding:10px 14px;
-  border-radius:8px;
-  font-size:14px;
-  color:#000;
-  font-weight:bold;
-}
+/* ================= 로고 ================= */
+.logo-box{
+  height:80px;
+  padding:8px 20px;
+  border-radius:14px;
 
-/* =======================
-   멤버
-======================= */
-.members{
-  margin:34px 18px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  text-align:center;
-}
+  background:linear-gradient(90deg,#666,#222);
 
-.member-card{
-  cursor:pointer;
-}
-
-.member-img{
-  width:100%;
-  aspect-ratio:4/5;
-  background:#999;
-  border-radius:10px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:42px;
-  color:#555;
 }
 
-.member-name{
-  margin-top:8px;
+.logo-box img{
+  height:70px;
+}
+
+/* ================= 소개 ================= */
+.info-box{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:16px;
+  padding:22px 20px;
+
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  font-size:14px;
+}
+
+/* 흰 라벨 유지 */
+.label{
+  background:rgba(255,255,255,.85);
+  color:#000;
+  padding:4px 10px;
+  border-radius:6px;
+  font-weight:bold;
+  font-size:13px;
+  margin-right:8px;
+}
+
+/* 흑백 태그 */
+.tag{
+  padding:3px 9px;
+  font-size:12px;
+  border-radius:8px;
+  font-weight:bold;
+  background:#aaa;
+  color:#000;
+}
+
+/* ================= 타이틀 ================= */
+.section-title{
+  text-align:center;
+  padding:12px 0;
+  background:linear-gradient(90deg,#666,#222);
+  border-radius:12px 12px 0 0;
   font-weight:bold;
 }
 
-.member-sub{
-  font-size:12px;
-  opacity:.75;
+/* ================= 멤버 ================= */
+.member-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;
 }
 
-/* =======================
-   음반 목록
-======================= */
-.albums{
-  margin:40px 18px;
+.member{
+  background:#dcdcdc;
+  color:#000;
+  border-radius:12px;
+  overflow:hidden;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
 }
 
-.album{
-  aspect-ratio:1/1;
-  background:#999;
-  border-radius:10px;
+.member:hover{
+  transform:translateY(-5px);
+}
+
+/* ⭐ 사진 대신 회색 박스 */
+.member-photo{
+  width:100%;
+  aspect-ratio:4/5;
+  background:#9a9a9a;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:40px;
-  color:#555;
+  color:#fff;
+  font-weight:bold;
+}
+
+.member-info{
+  padding:10px 8px 12px;
+}
+
+.member-name{
+  font-weight:bold;
+  margin-bottom:4px;
+}
+
+.member-sub{
+  font-size:12px;
+  opacity:.7;
+}
+
+.flag{
+  margin-top:4px;
+  font-size:18px;
+}
+
+/* ================= 안내 ================= */
+.notice{
+  text-align:center;
+  font-size:13px;
+  opacity:.8;
+}
+
+/* ================= 앨범 ================= */
+.album-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px;
+}
+
+.album{
+  background:#dcdcdc;
+  border-radius:12px;
+  overflow:hidden;
+  text-decoration:none;
+  color:#000;
+  text-align:center;
+  padding-bottom:16px;
+  transition:.25s;
+}
+
+.album:hover{
+  transform:translateY(-5px);
+}
+
+.album-photo{
+  width:100%;
+  aspect-ratio:1/1;
+  background:#9a9a9a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:36px;
+  color:#fff;
+  font-weight:bold;
+}
+
+.album-info{
+  margin-top:10px;
+  font-size:20px;
 }
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
-  <!-- 로고 -->
-  <div class="header">
-    <img src="images/IFOF.jpg">
-  </div>
+<!-- 로고 -->
+<div class="logo-box">
+  <img src="images/IFOF.jpg">
+</div>
 
-  <!-- 소개 -->
-  <div class="info">
-    <div class="info-row">데뷔일 2021년 1월 1일</div>
-    <div class="info-row">데뷔 음반 -</div>
-    <div class="info-row">리더 도시</div>
-    <div class="info-row">소속사 ST엔터테인먼트</div>
-    <div class="info-row">팬덤 LED(레드)</div>
-  </div>
+<!-- 소개 -->
+<div class="info-box">
 
-  <!-- 멤버 -->
-  <div class="members">
+<div><span class="label">데뷔일</span>2021년 1월 1일</div>
 
-    <div class="member-card" onclick="location.href='dosi.html'">
-      <div class="member-img">∅</div>
-      <div class="member-name">도시</div>
-      <div class="member-sub">2000. 12. 24. (26세)</div>
-      <div>🇰🇷</div>
-    </div>
+<div><span class="label">데뷔 음반</span>-</div>
 
-    <div class="member-card" onclick="location.href='zn.html'">
-      <div class="member-img">∅</div>
-      <div class="member-name">Zn</div>
-      <div class="member-sub">2002. 10. 30. (24세)</div>
-      <div>🇰🇷</div>
-    </div>
+<div><span class="label">리더</span>도시</div>
 
-    <div class="member-card" onclick="location.href='sawol.html'">
-      <div class="member-img">∅</div>
-      <div class="member-name">사월</div>
-      <div class="member-sub">2002. 04. 14. (24세)</div>
-      <div>🇯🇵</div>
-    </div>
+<div><span class="label">소속사</span>ST엔터테인먼트</div>
 
-    <div class="member-card" onclick="location.href='hoseong.html'">
-      <div class="member-img">∅</div>
-      <div class="member-name">호성</div>
-      <div class="member-sub">2003. 06. 21. (23세)</div>
-      <div>🇰🇷</div>
-    </div>
-
-  </div>
-
-  <!-- 음반 -->
-  <div class="albums">
-    <div class="album">-</div>
-  </div>
+<div><span class="label">팬덤</span><span class="tag">LED(레드)</span></div>
 
 </div>
 
+<!-- 멤버 -->
+<div>
+<div class="section-title">멤버</div>
+
+<div class="member-grid">
+
+<div class="member" onclick="location.href='dosi.html'">
+<div class="member-photo">∅</div>
+<div class="member-info">
+<div class="member-name">도시</div>
+<div class="member-sub">2000. 12. 24. (26세)</div>
+<div class="flag">🇰🇷</div>
+</div>
+</div>
+
+<div class="member" onclick="location.href='zn.html'">
+<div class="member-photo">∅</div>
+<div class="member-info">
+<div class="member-name">Zn</div>
+<div class="member-sub">2002. 10. 30. (24세)</div>
+<div class="flag">🇰🇷</div>
+</div>
+</div>
+
+<div class="member" onclick="location.href='sawol.html'">
+<div class="member-photo">∅</div>
+<div class="member-info">
+<div class="member-name">사월</div>
+<div class="member-sub">2002. 04. 14. (24세)</div>
+<div class="flag">🇯🇵</div>
+</div>
+</div>
+
+<div class="member" onclick="location.href='hoseong.html'">
+<div class="member-photo">∅</div>
+<div class="member-info">
+<div class="member-name">호성</div>
+<div class="member-sub">2003. 06. 21. (23세)</div>
+<div class="flag">🇰🇷</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="notice">✴︎ 이름을 클릭하면 상세 페이지로 이동합니다 ✴︎</div>
+
+<!-- 앨범 -->
+<div>
+<div class="section-title">음반 목록</div>
+
+<div class="album-grid">
+
+<div class="album">
+<div class="album-photo">∅</div>
+<div class="album-info">-</div>
+</div>
+
+<div class="album">
+<div class="album-photo">∅</div>
+<div class="album-info">-</div>
+</div>
+
+<div class="album">
+<div class="album-photo">∅</div>
+<div class="album-info">-</div>
+</div>
+
+</div>
+</div>
+
+</div>
 </body>
 </html>
