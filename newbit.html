@@ -1,80 +1,301 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NewBit</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NewBit | ST ENTERTAINMENT</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
+}
+
 body{
   min-height:100vh;
   display:flex;
   justify-content:center;
-  background:linear-gradient(120deg,#0070A0,#004080,#0070A0);
-  background-size:300% 300%;
-  animation:bgmove 12s ease infinite;
+  padding:60px 20px 120px;
   color:#fff;
+
+  /* 🔥 어두운 블루 배경 + 모션 */
+  background:linear-gradient(130deg,#04243a,#003f70,#005aa8,#003f70,#04243a);
+  background-size:400% 400%;
+  animation:bgmove 14s ease infinite;
 }
+
 @keyframes bgmove{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
-.container{width:100%;max-width:1100px;padding:40px 20px;text-align:center;}
-.logo{font-size:44px;font-weight:900;margin-bottom:20px;}
-.group-intro{background:rgba(255,255,255,0.05);border-radius:12px;padding:20px;margin-bottom:40px;}
-.group-intro h2{font-size:22px;margin-bottom:6px;}
-.group-intro p{font-size:14px;opacity:0.8;}
-.members-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;margin-bottom:20px;}
-.member-card{cursor:pointer;background:rgba(255,255,255,0.05);padding:10px;border-radius:10px;transition:transform .15s ease,box-shadow .2s; text-align:center;}
-.member-card:hover{transform:scale(1.05);box-shadow:0 10px 20px rgba(0,0,0,0.3);}
-.member-card img{width:100%;border-radius:10px;aspect-ratio:1/1;object-fit:cover;}
-.member-name{margin-top:8px;font-weight:700;font-size:14px;}
-.notice{margin:12px 0;font-size:12px;opacity:0.7;}
-.albums{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-top:20px;}
-.album-card{position:relative;cursor:pointer;transition:transform .15s ease;}
-.album-card:hover{transform:scale(1.05);}
-.album-card img{border-radius:12px;width:140px;height:140px;object-fit:cover;display:block;}
-.album-label{position:absolute;bottom:6px;left:6px;padding:4px 8px;font-size:12px;font-weight:700;border-radius:6px;}
-.album-new{background:#FF3C3C;color:#fff;}
-.album-bite{background:#FFD700;color:#000;}
-.album-tome{background:#00FFB0;color:#000;}
-.album-about{background:#FF8C00;color:#fff;}
+
+.container{
+  width:100%;
+  max-width:1100px;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+/* ================== 로고 ================== */
+
+.logo-box{
+  padding:30px;
+  border-radius:18px;
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
+  text-align:center;
+  font-size:40px;
+  font-weight:bold;
+  letter-spacing:4px;
+  box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+
+/* ================== 그룹 소개 ================== */
+
+.info-box{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:20px;
+  padding:28px;
+  backdrop-filter:blur(8px);
+}
+
+.info-title{
+  text-align:center;
+  margin-bottom:22px;
+  font-size:18px;
+  opacity:.9;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px 50px;
+}
+
+.label{
+  background:#dbefff;
+  color:#000;
+  padding:6px 14px;
+  border-radius:8px;
+  font-size:13px;
+  display:inline-block;
+  margin-right:10px;
+  font-weight:bold;
+}
+
+.tag{
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:12px;
+  margin-left:8px;
+}
+
+.outline{
+  border:1px solid #fff;
+  background:transparent;
+}
+
+.new{
+  background:#00BFFF;
+}
+
+/* ================== 멤버 ================== */
+
+.section-title{
+  text-align:center;
+  padding:14px 0;
+  border-radius:14px 14px 0 0;
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
+  font-weight:bold;
+}
+
+.member-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  overflow:hidden;
+  border-radius:0 0 18px 18px;
+}
+
+.member{
+  cursor:pointer;
+  transition:.25s;
+  text-align:center;
+  background:#eaf7ff;
+  color:#000;
+}
+
+.member:hover{
+  transform:scale(1.05);
+  z-index:2;
+}
+
+.member img{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+}
+
+.member-name{
+  padding:10px 0;
+  font-weight:bold;
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
+  color:#fff;
+}
+
+/* ================== 안내문구 ================== */
+
+.notice{
+  text-align:center;
+  opacity:.8;
+  font-size:14px;
+}
+
+/* ================== 앨범 ================== */
+
+.album-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.album{
+  background:#fff;
+  color:#000;
+  border-radius:14px;
+  overflow:hidden;
+  text-align:center;
+  text-decoration:none;
+  transition:.25s;
+}
+
+.album:hover{
+  transform:translateY(-6px);
+}
+
+.album img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:10px;
+  font-size:13px;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.b1{background:#00BFFF;color:#fff;}
+.b2{background:#9aff00;color:#003400;}
+.b3{background:#0a3d91;color:#fff;}
+.b4{background:#b8c6ff;color:#27306f;}
+
+.small{
+  font-size:12px;
+  margin:6px 0 12px;
+  opacity:.6;
+}
 </style>
 </head>
+
 <body>
+
 <div class="container">
-  <div class="logo">ꔘ ᗲ</div>
-  <div class="group-intro">
-    <h2>NewBit</h2>
-    <p>서로 다른 감각이 하나로 울리는 다섯 멤버 유닛</p>
+
+  <!-- 로고 -->
+  <div class="logo-box">ꔘ ᗲ | NewBit 뉴빗</div>
+
+  <!-- 그룹 정보 -->
+  <div class="info-box">
+    <div class="info-title">ST엔터테인먼트 소속 5인조 보이그룹</div>
+
+    <div class="info-grid">
+      <div><span class="label">데뷔일</span>2024년 11월 1일</div>
+      <div><span class="label">팬덤</span>Bite (바이트)</div>
+
+      <div>
+        <span class="label">데뷔 음반</span>
+        <span class="tag outline">싱글 1집</span>
+        <span class="tag new">NEW</span>
+      </div>
+
+      <div><span class="label">리더</span>서하</div>
+    </div>
   </div>
-  <div class="members-grid">
-    <div class="member-card" onclick="window.location.href='seoha.html'"><img src="images/2seoha.jpeg"><div class="member-name">서하</div></div>
-    <div class="member-card" onclick="window.location.href='ondo.html'"><img src="images/2ondo.jpeg"><div class="member-name">온도</div></div>
-    <div class="member-card" onclick="window.location.href='yeongha.html'"><img src="images/2yeongha.jpeg"><div class="member-name">영하</div></div>
-    <div class="member-card" onclick="window.location.href='eun.html'"><img src="images/2eun.jpeg"><div class="member-name">은</div></div>
-    <div class="member-card" onclick="window.location.href='sinwoo.html'"><img src="images/2sinwoo.jpeg"><div class="member-name">신우</div></div>
+
+  <!-- 멤버 -->
+  <div>
+    <div class="section-title">멤버</div>
+
+    <div class="member-grid">
+      <div class="member" onclick="location.href='seoha.html'">
+        <img src="images/2seoha.jpeg">
+        <div class="member-name">서하</div>
+      </div>
+
+      <div class="member" onclick="location.href='ondo.html'">
+        <img src="images/2ondo.jpeg">
+        <div class="member-name">온도</div>
+      </div>
+
+      <div class="member" onclick="location.href='yeongha.html'">
+        <img src="images/2yeongha.jpeg">
+        <div class="member-name">영하</div>
+      </div>
+
+      <div class="member" onclick="location.href='eun.html'">
+        <img src="images/2eun.jpeg">
+        <div class="member-name">은</div>
+      </div>
+
+      <div class="member" onclick="location.href='sinwoo.html'">
+        <img src="images/2sinwoo.jpeg">
+        <div class="member-name">신우</div>
+      </div>
+    </div>
   </div>
+
   <div class="notice">✴︎ 이름을 클릭하면 상세 페이지로 이동합니다 ✴︎</div>
-  <div class="albums">
-    <div class="album-card" onclick="window.open('https://youtu.be/xGevsZco2EM?si=gni_4HZhq17N5ZPR','_blank')">
-      <img src="images/NEW.jpg">
-      <div class="album-label album-new">NEW</div>
-    </div>
-    <div class="album-card" onclick="window.open('https://youtu.be/mO6j0Rwf3Zs?si=qtRBabifrTWwACMy','_blank')">
-      <img src="images/BitE.jpg">
-      <div class="album-label album-bite">BitE</div>
-    </div>
-    <div class="album-card" onclick="window.open('https://youtu.be/jP1gEuqBHew?si=GKsuw3MgqLrr2Ms9','_blank')">
-      <img src="images/To Me.jpg">
-      <div class="album-label album-tome">To Me</div>
-    </div>
-    <div class="album-card" onclick="window.open('https://youtu.be/-At-k3fy5OY?si=jdfWTxKVKkM_L0_J','_blank')">
-      <img src="images/ABOUT YOU.jpg">
-      <div class="album-label album-about">About you</div>
+
+  <!-- 앨범 -->
+  <div>
+    <div class="section-title">음반 목록</div>
+
+    <div class="album-grid">
+
+      <a class="album" href="https://youtu.be/xGevsZco2EM?si=gni_4HZhq17N5ZPR" target="_blank">
+        <img src="images/NEW.jpg">
+        <div class="badge b1">NEW</div>
+        <div class="small">2024. 11. 01.</div>
+      </a>
+
+      <a class="album" href="https://youtu.be/mO6j0Rwf3Zs?si=qtRBabifrTWwACMy" target="_blank">
+        <img src="images/BitE.jpg">
+        <div class="badge b2">BitE</div>
+        <div class="small">2025. 01. 17.</div>
+      </a>
+
+      <a class="album" href="https://youtu.be/jP1gEuqBHew?si=GKsuw3MgqLrr2Ms9" target="_blank">
+        <img src="images/To Me.jpg">
+        <div class="badge b3">To Me</div>
+        <div class="small">2025. 06. 25.</div>
+      </a>
+
+      <a class="album" href="https://youtu.be/-At-k3fy5OY?si=jdfWTxKVKkM_L0_J" target="_blank">
+        <img src="images/ABOUT YOU.jpg">
+        <div class="badge b4">About you</div>
+        <div class="small">2025. 11. 02.</div>
+      </a>
+
     </div>
   </div>
+
 </div>
 </body>
 </html>
