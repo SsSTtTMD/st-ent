@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>NewBit | ST ENTERTAINMENT</title>
 
 <style>
@@ -13,23 +14,15 @@
   font-family:Arial, sans-serif;
 }
 
-/* ================= 배경 (확실한 모션) ================= */
+/* ================= 배경 모션 ================= */
 body{
   min-height:100vh;
   display:flex;
   justify-content:center;
-  padding:50px 18px 120px;
+  padding:40px 16px 120px;
   color:#fff;
 
-  background:linear-gradient(
-    140deg,
-    #021c2f,
-    #00365f,
-    #005aa8,
-    #00365f,
-    #021c2f
-  );
-
+  background:linear-gradient(140deg,#021c2f,#00365f,#005aa8,#00365f,#021c2f);
   background-size:500% 500%;
   animation:bgmove 18s ease-in-out infinite;
 }
@@ -42,82 +35,90 @@ body{
 
 .container{
   width:100%;
-  max-width:1100px;
+  max-width:1050px;
   display:flex;
   flex-direction:column;
-  gap:42px;
+  gap:34px;
 }
 
-/* ================= 로고 (이미지 삽입) ================= */
+/* ================= 상단 로고 바 (납작하게) ================= */
 .logo-box{
+  height:80px;
+  padding:8px 20px;
+  border-radius:14px;
+
   background:linear-gradient(90deg,#00BFFF,#0080FF);
-  border-radius:18px;
-  padding:20px;
+
   display:flex;
+  align-items:center;
   justify-content:center;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
 
 .logo-box img{
-  width:100%;
-  max-width:600px;
+  height:60px;
+  width:auto;
 }
 
-/* ================= 그룹 소개 (세로) ================= */
+/* ================= 그룹 소개 ================= */
 .info-box{
-  background:rgba(255,255,255,.07);
+  background:rgba(255,255,255,.06);
   border:1px solid rgba(255,255,255,.25);
-  border-radius:18px;
-  padding:26px;
+  border-radius:16px;
+  padding:22px 20px;
+
   display:flex;
   flex-direction:column;
-  gap:16px;
-  backdrop-filter:blur(6px);
-  font-size:15px;
+  gap:14px;
+  font-size:14px;
 }
 
+/* ⭐ 흰 반투명 라벨 (초기 디자인 복귀) */
 .label{
+  background:rgba(255,255,255,.85);
+  color:#000;
+  padding:4px 10px;
+  border-radius:6px;
   font-weight:bold;
-  margin-right:10px;
+  font-size:13px;
+  margin-right:8px;
 }
 
-/* 공통 배지 */
-.badge{
-  padding:4px 12px;
-  border-radius:10px;
+/* 태그 */
+.tag{
+  padding:3px 9px;
   font-size:12px;
+  border-radius:8px;
   font-weight:bold;
-  margin-left:8px;
 }
 
-.badge-blue{
-  background:linear-gradient(90deg,#00BFFF,#0080FF);
-}
-
-.outline-blue{
+.blue-outline{
   border:1px solid #00BFFF;
+}
+
+.blue-fill{
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
 }
 
 /* ================= 섹션 타이틀 ================= */
 .section-title{
   text-align:center;
-  padding:14px 0;
+  padding:12px 0;
   background:linear-gradient(90deg,#00BFFF,#0080FF);
-  border-radius:14px 14px 0 0;
+  border-radius:12px 12px 0 0;
   font-weight:bold;
 }
 
 /* ================= 멤버 ================= */
 .member-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(165px,1fr));
   gap:14px;
 }
 
 .member{
   background:#eaf7ff;
   color:#000;
-  border-radius:14px;
+  border-radius:12px;
   overflow:hidden;
   text-align:center;
   cursor:pointer;
@@ -125,10 +126,9 @@ body{
 }
 
 .member:hover{
-  transform:translateY(-6px);
+  transform:translateY(-5px);
 }
 
-/* ⭐ 4:5 비율 */
 .member img{
   width:100%;
   aspect-ratio:4/5;
@@ -136,12 +136,12 @@ body{
 }
 
 .member-info{
-  padding:12px 8px 14px;
+  padding:10px 8px 12px;
 }
 
 .member-name{
   font-weight:bold;
-  margin-bottom:6px;
+  margin-bottom:4px;
 }
 
 .member-sub{
@@ -150,15 +150,15 @@ body{
 }
 
 .flag{
+  margin-top:4px;
   font-size:18px;
-  margin-top:6px;
 }
 
 /* ================= 안내문구 ================= */
 .notice{
   text-align:center;
+  font-size:13px;
   opacity:.85;
-  font-size:14px;
 }
 
 /* ================= 앨범 ================= */
@@ -170,16 +170,17 @@ body{
 
 .album{
   background:#fff;
-  border-radius:14px;
+  border-radius:12px;
   overflow:hidden;
-  text-decoration:none;
   text-align:center;
-  padding-bottom:12px;
+  text-decoration:none;
+  color:#000;
+  padding-bottom:14px;
   transition:.25s;
 }
 
 .album:hover{
-  transform:translateY(-6px);
+  transform:translateY(-5px);
 }
 
 .album img{
@@ -191,18 +192,27 @@ body{
 
 .album-title{
   margin-top:10px;
+  padding:5px 10px;
+  border-radius:8px;
   font-weight:bold;
-  padding:6px 12px;
-  border-radius:10px;
   display:inline-block;
 }
 
-.album-sub{
-  font-size:12px;
+.album-type{
   margin-top:6px;
+  font-size:12px;
+  display:inline-block;
+  padding:3px 9px;
+  border-radius:6px;
 }
 
-/* 앨범별 스타일 */
+.album-date{
+  font-size:12px;
+  margin-top:6px;
+  opacity:.6;
+}
+
+/* 앨범별 색 */
 .a1{background:linear-gradient(90deg,#00BFFF,#0080FF); color:#fff;}
 .a1b{border:1px solid #00BFFF;}
 
@@ -227,21 +237,23 @@ body{
 
 <!-- 그룹 소개 -->
 <div class="info-box">
-  <div><span class="label">데뷔일</span>2024년 11월 1일</div>
 
-  <div>
-    <span class="label">데뷔 음반</span>
-    <span class="badge outline-blue">싱글 1집</span>
-    <span class="badge badge-blue">NEW</span>
-  </div>
+<div><span class="label">데뷔일</span>2024년 11월 1일</div>
 
-  <div><span class="label">리더</span>서하</div>
-  <div><span class="label">소속사</span>ST엔터테인먼트</div>
+<div>
+  <span class="label">데뷔 음반</span>
+  <span class="tag blue-outline">싱글 1집</span>
+  <span class="tag blue-fill">NEW</span>
+</div>
 
-  <div>
-    <span class="label">팬덤</span>
-    <span class="badge badge-blue">BitE(바이티)</span>
-  </div>
+<div><span class="label">리더</span>서하</div>
+<div><span class="label">소속사</span>ST엔터테인먼트</div>
+
+<div>
+  <span class="label">팬덤</span>
+  <span class="tag blue-fill">BitE(바이티)</span>
+</div>
+
 </div>
 
 <!-- 멤버 -->
@@ -309,25 +321,29 @@ body{
 <a class="album" href="https://youtu.be/xGevsZco2EM?si=gni_4HZhq17N5ZPR" target="_blank">
 <img src="images/NEW.jpg">
 <div class="album-title a1">NEW</div>
-<div class="album-sub a1b">싱글 1집</div>
+<div class="album-type a1b">싱글 1집</div>
+<div class="album-date">2024. 11. 01.</div>
 </a>
 
 <a class="album" href="https://youtu.be/mO6j0Rwf3Zs?si=qtRBabifrTWwACMy" target="_blank">
 <img src="images/BitE.jpg">
 <div class="album-title a2">BitE</div>
-<div class="album-sub a2b">EP 1집</div>
+<div class="album-type a2b">EP 1집</div>
+<div class="album-date">2025. 01. 17.</div>
 </a>
 
 <a class="album" href="https://youtu.be/jP1gEuqBHew?si=GKsuw3MgqLrr2Ms9" target="_blank">
 <img src="images/To Me.jpg">
 <div class="album-title a3">To Me</div>
-<div class="album-sub a3b">EP 2집 · 2025. 06. 27.</div>
+<div class="album-type a3b">EP 2집</div>
+<div class="album-date">2025. 06. 27.</div>
 </a>
 
 <a class="album" href="https://youtu.be/-At-k3fy5OY?si=jdfWTxKVKkM_L0_J" target="_blank">
 <img src="images/ABOUT YOU.jpg">
 <div class="album-title a4">About you</div>
-<div class="album-sub a4b">싱글 2집</div>
+<div class="album-type a4b">싱글 2집</div>
+<div class="album-date">2025. 11. 02.</div>
 </a>
 
 </div>
