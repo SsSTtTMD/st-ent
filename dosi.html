@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>도시 | IN FRONT OF</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+  color:#fff;
+  letter-spacing:.3px;
+}
+
+/* ================= 배경 (단색 회색) ================= */
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:60px 16px 120px;
+  background:#1f1f1f;
+}
+
+/* ================= 레이아웃 ================= */
+.container{
+  width:100%;
+  max-width:520px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+
+/* ================= 사진 (접근 차단 박스) ================= */
+.profile-img{
+  width:100%;
+  height:320px;
+  border-radius:6px;
+  background:#3a3a3a;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  box-shadow:0 0 20px rgba(0,0,0,.6);
+}
+
+.denied-icon{
+  font-size:54px;
+  opacity:.5;
+  margin-bottom:14px;
+}
+
+.denied-title{
+  font-weight:900;
+  letter-spacing:2px;
+  margin-bottom:6px;
+}
+
+.denied-sub{
+  font-size:13px;
+  opacity:.6;
+}
+
+/* ================= 이름 ================= */
+.name{
+  font-size:30px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+.sub{
+  color:#bfbfbf; /* 연회색 */
+  letter-spacing:3px;
+  font-size:14px;
+  margin-top:4px;
+}
+.role{
+  text-align:center;
+  font-size:14px;
+  margin-top:10px;
+  letter-spacing:2px;
+}
+.role strong{
+  font-weight:900;
+  color:#fff;
+}
+
+/* ================= 버튼 (회색) ================= */
+.btn{
+  width:100%;
+  padding:16px 18px;
+  border-radius:6px;
+  background:linear-gradient(90deg,#555,#3f3f3f);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+  box-shadow:0 0 12px rgba(0,0,0,.6);
+}
+.btn:hover{ transform:scale(1.03); }
+.btn:active{ transform:scale(.97); }
+
+.star{
+  font-size:24px;
+  animation:blink 2s infinite;
+}
+@keyframes blink{
+  0%,100%{opacity:.3;}
+  50%{opacity:1;}
+}
+
+/* ================= 패널 ================= */
+.panel{
+  width:100%;
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .45s ease;
+  margin-top:2px;
+}
+
+/* 카드 */
+.profile-card{
+  background:rgba(255,255,255,.97);
+  border-radius:6px;
+  overflow:hidden;
+}
+
+/* 표 행 */
+.row{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  border-bottom:1px solid #ddd;
+}
+
+/* 항목칸 (회색) */
+.label{
+  background:#9e9e9e;
+  color:#000;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 6px;
+  text-align:center;
+}
+
+/* 내용칸 */
+.value{
+  background:#fff;
+  color:#000;
+  padding:14px;
+  white-space:pre-line;
+  line-height:1.55;
+  font-size:0.95em;
+}
+
+.notice{
+  margin-top:26px;
+  font-size:12px;
+  opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- 접근 제한 박스 -->
+<div class="profile-img">
+  <div class="denied-icon">⦰</div>
+  <div class="denied-title">ACCESS DENIED</div>
+  <div class="denied-sub">아직 접근할 수 없는 정보입니다.</div>
+</div>
+
+<div class="name">도시</div>
+<div class="sub">DOSI</div>
+
+<div class="role">
+<strong>LEADER</strong><br>
+MAIN VOCAL
+</div>
+
+
+<!-- ================= 프로필 (유일 버튼) ================= -->
+<div class="btn" onclick="togglePanel(this)">▎프로필 <span class="star">◉</span></div>
+<div class="panel">
+  <div class="profile-card">
+
+    <div class="row"><div class="label">본명</div><div class="value">도윤시 (都潤翅, Do Yunsi)</div></div>
+    <div class="row"><div class="label">출생</div><div class="value">2000년 12월 25일 (26세)
+서울특별시 강남구</div></div>
+    <div class="row"><div class="label">국적</div><div class="value">🇰🇷 대한민국</div></div>
+    <div class="row"><div class="label">본관</div><div class="value">성주 도씨 (星州 都氏)</div></div>
+    <div class="row"><div class="label">소속사</div><div class="value">ST엔터테인먼트</div></div>
+    <div class="row"><div class="label">소속 그룹</div><div class="value">IN FRONT OF</div></div>
+    <div class="row"><div class="label">포지션</div><div class="value"><strong>리더</strong>, <strong>메인보컬</strong></div></div>
+
+  </div>
+</div>
+
+<div class="notice">◉를 클릭하여 정보를 확인하세요</div>
+
+</div>
+
+<script>
+function togglePanel(btn){
+  const panel = btn.nextElementSibling;
+  panel.style.maxHeight =
+    panel.style.maxHeight ? null : panel.scrollHeight + "px";
+}
+</script>
+
+</body>
+</html>
