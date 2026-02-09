@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>온도 | NewBit</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+  color:#fff;
+  letter-spacing:.3px;
+}
+
+/* ================= 배경 ================= */
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:60px 16px 120px;
+  background:linear-gradient(140deg,#00769D,#004F9D,#00769D,#004F9D);
+  background-size:600% 600%;
+  animation:bgmove 10s ease-in-out infinite;
+}
+@keyframes bgmove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ================= 레이아웃 ================= */
+.container{
+  width:100%;
+  max-width:520px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+
+/* ================= 사진 ================= */
+.profile-img{
+  width:100%;
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 0 25px rgba(0,191,255,.4);
+}
+.profile-img img{ width:100%; display:block; }
+
+/* ================= 이름 ================= */
+.name{
+  font-size:30px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+.sub{
+  color:#FF6B81; /* ⭐ 연빨강 */
+  letter-spacing:3px;
+  font-size:14px;
+  margin-top:4px;
+}
+.role{
+  text-align:center;
+  font-size:14px;
+  margin-top:10px;
+  letter-spacing:2px;
+}
+.role strong{
+  font-weight:900;
+  color:#fff;
+  letter-spacing:2px;
+}
+
+/* ================= 버튼 ================= */
+.btn{
+  width:100%;
+  padding:16px 18px;
+  border-radius:6px;
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+  box-shadow:0 0 15px rgba(0,191,255,.4);
+}
+.btn:hover{ transform:scale(1.03); }
+.btn:active{ transform:.97; }
+
+.star{
+  font-size:24px;
+  animation:blink 2s infinite;
+}
+@keyframes blink{
+  0%,100%{opacity:.3;}
+  50%{opacity:1;}
+}
+.btn + .btn{ margin-top:16px; }
+
+/* ================= 패널 ================= */
+.panel{
+  width:100%;
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .45s ease;
+  margin-top:2px;
+}
+
+/* 카드 */
+.profile-card{
+  background:rgba(255,255,255,.97);
+  border-radius:6px;
+  overflow:hidden;
+}
+
+/* 표 행 */
+.row{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  border-bottom:1px solid #ddd;
+}
+
+/* ⭐ 항목칸 색 변경 */
+.label{
+  background:#DE3163;
+  color:#000;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 6px;
+  text-align:center;
+}
+
+/* 내용칸 */
+.value{
+  background:#fff;
+  color:#000;
+  padding:14px;
+  white-space:pre-line;
+  line-height:1.55;
+  font-size:0.95em;
+}
+
+.value strong{
+  font-weight:900;
+  color:#000;
+}
+
+/* 인터뷰 */
+.q{
+  background:#f1f1f1;
+  font-weight:bold;
+  color:#000;
+  padding:12px 14px;
+}
+.a{
+  background:#fff;
+  color:#000;
+  padding:12px 14px;
+  border-bottom:1px solid #ddd;
+  font-size:0.95em;
+}
+
+/* 소견 */
+.opinion{
+  background:#fff;
+  color:#000;
+  padding:18px;
+}
+.opinion-title{
+  text-align:center;
+  font-weight:900;
+  margin-bottom:12px;
+  color:#000;
+}
+.opinion ul{
+  padding-left:18px;
+  line-height:1.8;
+}
+.opinion li{
+  color:#000;
+}
+
+/* 안내 */
+.notice{
+  margin-top:26px;
+  font-size:12px;
+  opacity:.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="profile-img">
+  <img src="images/Ondo.jpeg">
+</div>
+
+<div class="name">온도</div>
+<div class="sub">ONDO</div>
+
+<div class="role">
+<strong>MAIN VOCAL</strong>
+</div>
+
+<!-- ================= 프로필 ================= -->
+<div class="btn" onclick="togglePanel(this)">▎프로필 <span class="star">✦</span></div>
+<div class="panel">
+  <div class="profile-card">
+
+    <div class="row"><div class="label">본명</div><div class="value">이온도 (李溫到, Lee Ondo)</div></div>
+    <div class="row"><div class="label">출생</div><div class="value">2004년 8월 30일 (22세)
+프랑스 파리</div></div>
+    <div class="row"><div class="label">출신</div><div class="value">서울특별시 성동구</div></div>
+    <div class="row"><div class="label">국적</div><div class="value">🇰🇷 대한민국</div></div>
+    <div class="row"><div class="label">본관</div><div class="value">여주 이씨 (驪州 李氏)</div></div>
+    <div class="row"><div class="label">신체</div><div class="value">179cm</div></div>
+    <div class="row"><div class="label">가족</div><div class="value">아버지, 어머니, 형, 쌍둥이 형
+반려견 돌체(셔틀랜드 쉽독)</div></div>
+    <div class="row"><div class="label">소속사</div><div class="value">ST엔터테인먼트</div></div>
+    <div class="row"><div class="label">소속 그룹</div><div class="value">NewBit</div></div>
+    <div class="row"><div class="label">포지션</div><div class="value"><strong>메인보컬</strong></div></div>
+    <div class="row"><div class="label">상징</div><div class="value">빨강 ｜ 🦋</div></div>
+    <div class="row"><div class="label">MBTI</div><div class="value">ISFJ</div></div>
+
+  </div>
+</div>
+
+<!-- ================= 인터뷰 ================= -->
+<div class="btn" onclick="togglePanel(this)">▎인터뷰 <span class="star">✦</span></div>
+<div class="panel">
+  <div class="profile-card">
+
+    <div class="q">Q1. 요즘 가장 자주 하는 생각은?</div>
+    <div class="a">좋은 노래를 만들고 싶다, 목 관리</div>
+
+    <div class="q">Q2. 아무도 안 볼 때 나는 어떤 사람?</div>
+    <div class="a">조용히 생각을 많이 하는 편입니다</div>
+
+    <div class="q">Q3. 스스로를 한 단어로 정의하면?</div>
+    <div class="a">목소리</div>
+
+    <div class="q">Q4. 나를 제일 기쁘게 하는 것</div>
+    <div class="a">만족스러운 결과물이 나왔을 때의 희열</div>
+
+    <div class="q">Q5. 나를 제일 불안하게 하는 것</div>
+    <div class="a">목이 예전 같지 않다고 느껴질 때</div>
+
+    <div class="q">Q6. 꿈과 소중한 것 중 하나를 포기해야 한다면?</div>
+    <div class="a">소중한 것을 잃으면 꿈을 이뤄도 의미가 없을 것 같아요</div>
+
+    <div class="q">Q7. 나는 어떤 모습으로 기억되고 싶은지?</div>
+    <div class="a">언제나 그 자리에 있는 사람</div>
+
+  </div>
+</div>
+
+<!-- ================= 개인 기록 ================= -->
+<div class="btn" onclick="togglePanel(this)">▎개인 기록 <span class="star">✦</span></div>
+<div class="panel">
+  <div class="profile-card">
+
+    <div class="row"><div class="label">가족 정보</div><div class="value">부친, 모친, 형 (이채도/李彩到), 쌍둥이 형 (이휘도/李輝到)
+반려견 돌체(셔틀랜드 쉽독)</div></div>
+    <div class="row"><div class="label">식성</div><div class="value">좋아하는 음식: 양과자, 건포도
+싫어하는 음식: 파인애플 피자</div></div>
+    <div class="row"><div class="label">위버스</div><div class="value">닉네임: 옹도
+게시 빈도: 小</div></div>
+    <div class="row"><div class="label">인스타 ID</div><div class="value">@o.ondo.o</div></div>
+
+    <div class="opinion">
+      <div class="opinion-title">소견</div>
+      <ul>
+        <li>외모, 출생지 덕에 혼혈 오해 받는 경우 잦습니다. 부모님 파리 출장 중 태어났을 뿐 대한민국 국적 한국인입니다. 오해 상황 발생 시 정정 요망합니다.</li>
+        <li>부유한 예술계 가문 출신입니다. 본인이 불편해 하니 과한 언급 삼가하세요.</li>
+        <li>팀내 숨겨진 지주 역할입니다.</li>
+        <li>더위는 잘 안 타지만 추위에 약합니다.</li>
+        <li>피아노 연주 가능합니다.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="notice">✦를 클릭하여 정보를 확인하세요</div>
+
+</div>
+
+<script>
+function togglePanel(btn){
+  const panel = btn.nextElementSibling;
+  panel.style.maxHeight =
+    panel.style.maxHeight ? null : panel.scrollHeight + "px";
+}
+</script>
+
+</body>
+</html>
