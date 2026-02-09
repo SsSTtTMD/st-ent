@@ -15,7 +15,7 @@
   letter-spacing:.3px;
 }
 
-/* ================= 배경 (원본 유지) ================= */
+/* ================= 배경 ================= */
 body{
   min-height:100vh;
   display:flex;
@@ -24,6 +24,21 @@ body{
   background:linear-gradient(140deg,#00769D,#004F9D,#00769D,#004F9D);
   background-size:600% 600%;
   animation:bgmove 10s ease-in-out infinite;
+}
+@keyframes bgmove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ================= 레이아웃 ================= */
+.container{
+  width:100%;
+  max-width:520px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
 }
 
 /* ================= 사진 ================= */
@@ -42,15 +57,76 @@ body{
   letter-spacing:2px;
 }
 .sub{
-  color:#CCCCFF; /* 연보라만 변경 */
+  color:#CCCCFF; /* ✅ 연보라로만 변경 */
   letter-spacing:3px;
   font-size:14px;
   margin-top:4px;
 }
+.role{
+  text-align:center;
+  font-size:14px;
+  margin-top:10px;
+  letter-spacing:2px;
+}
+.role strong{
+  font-weight:900;
+  color:#fff;
+  letter-spacing:2px;
+}
 
-/* ================= 항목칸 색만 변경 ================= */
+/* ================= 버튼 ================= */
+.btn{
+  width:100%;
+  padding:16px 18px;
+  border-radius:6px;
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+  box-shadow:0 0 15px rgba(0,191,255,.4);
+}
+.btn:hover{ transform:scale(1.03); }
+.btn:active{ transform:scale(.97); }
+
+.star{
+  font-size:24px;
+  animation:blink 2s infinite;
+}
+@keyframes blink{
+  0%,100%{opacity:.3;}
+  50%{opacity:1;}
+}
+.btn + .btn{ margin-top:16px; }
+
+/* ================= 패널 ================= */
+.panel{
+  width:100%;
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .45s ease;
+  margin-top:2px;
+}
+
+/* 카드 */
+.profile-card{
+  background:rgba(255,255,255,.97);
+  border-radius:6px;
+  overflow:hidden;
+}
+
+/* 표 행 */
+.row{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  border-bottom:1px solid #ddd;
+}
+
+/* 항목칸 */
 .label{
-  background:#CCCCFF;
+  background:#CCCCFF; /* ✅ 여기만 색 변경 */
   color:#000;
   font-weight:bold;
   display:flex;
@@ -60,20 +136,70 @@ body{
   text-align:center;
 }
 
-/* ================= 배지 색만 변경 ================= */
+/* 내용칸 */
+.value{
+  background:#fff;
+  color:#000;
+  padding:14px;
+  white-space:pre-line;
+  line-height:1.55;
+  font-size:0.95em;
+}
+
+.value strong{
+  font-weight:900;
+  color:#000;
+}
+
+/* 배지 */
 .badge{
-  background:#CCCCFF;
+  background:#CCCCFF; /* ✅ 여기만 색 변경 */
   padding:2px 8px;
   border-radius:4px;
   font-weight:bold;
   color:#000;
 }
 
-/* ⭐ 소견/개인사 글씨 확실히 보이게 */
-.opinion,
-.opinion *,
+/* 인터뷰 */
+.q{
+  background:#f1f1f1;
+  font-weight:bold;
+  color:#000;
+  padding:12px 14px;
+}
+.a{
+  background:#fff;
+  color:#000;
+  padding:12px 14px;
+  border-bottom:1px solid #ddd;
+  font-size:0.95em;
+}
+
+/* ⭐ 소견 */
+.opinion{
+  background:#fff;
+  color:#000;
+  padding:18px;
+}
+.opinion-title{
+  text-align:center;
+  font-weight:900;
+  margin-bottom:12px;
+  color:#000;
+}
+.opinion ul{
+  padding-left:18px;
+  line-height:1.8;
+  color:#000;
+}
 .opinion li{
   color:#000;
+}
+
+.notice{
+  margin-top:26px;
+  font-size:12px;
+  opacity:.7;
 }
 </style>
 </head>
@@ -83,7 +209,7 @@ body{
 <div class="container">
 
 <div class="profile-img">
-  <img src="images/Yeongha.jpeg">
+  <img src="images/Seoha.jpeg">
 </div>
 
 <div class="name">영하</div>
@@ -93,94 +219,95 @@ body{
 <strong>MAIN DANCER</strong>
 </div>
 
-
 <!-- ================= 프로필 ================= -->
 <div class="btn" onclick="togglePanel(this)">▎프로필 <span class="star">✦</span></div>
 <div class="panel">
-<div class="profile-card">
+  <div class="profile-card">
 
-<div class="row"><div class="label">본명</div><div class="value">류영하 (柳榮嘏, Ryo Yeongha)</div></div>
-<div class="row"><div class="label">출생</div><div class="value">2004년 2월 29일 (22세)
+    <div class="row"><div class="label">본명</div><div class="value">류영하 (柳榮嘏, Ryo Yeongha)</div></div>
+    <div class="row"><div class="label">출생</div><div class="value">2004년 2월 29일 (22세)
 강원특별자치도 화천군</div></div>
-<div class="row"><div class="label">국적</div><div class="value">🇰🇷 대한민국</div></div>
-<div class="row"><div class="label">본관</div><div class="value">문화 류씨 (文化 柳氏)</div></div>
-<div class="row"><div class="label">신체</div><div class="value">178cm</div></div>
-<div class="row"><div class="label">소속사</div><div class="value">ST엔터테인먼트</div></div>
-<div class="row"><div class="label">소속 그룹</div><div class="value">NewBit</div></div>
-<div class="row"><div class="label">포지션</div><div class="value"><strong>메인댄서</strong></div></div>
-<div class="row"><div class="label">상징</div><div class="value"><span class="badge">연보라</span> ｜ 🐇</div></div>
-<div class="row"><div class="label">MBTI</div><div class="value">INFJ</div></div>
+    <div class="row"><div class="label">국적</div><div class="value">🇰🇷 대한민국</div></div>
+    <div class="row"><div class="label">본관</div><div class="value">문화 류씨 (文化 柳氏)</div></div>
+    <div class="row"><div class="label">신체</div><div class="value">178cm</div></div>
+    <div class="row"><div class="label">소속사</div><div class="value">ST엔터테인먼트</div></div>
+    <div class="row"><div class="label">소속 그룹</div><div class="value">NewBit</div></div>
+    <div class="row"><div class="label">포지션</div><div class="value"><strong>메인댄서</strong></div></div>
+    <div class="row"><div class="label">상징</div><div class="value"><span class="badge">연보라</span> ｜ 🐇</div></div>
+    <div class="row"><div class="label">MBTI</div><div class="value">INFJ</div></div>
 
+  </div>
 </div>
-</div>
-
 
 <!-- ================= 인터뷰 ================= -->
 <div class="btn" onclick="togglePanel(this)">▎인터뷰 <span class="star">✦</span></div>
 <div class="panel">
-<div class="profile-card">
+  <div class="profile-card">
 
-<div class="q">Q1. 요즘 가장 자주 하는 생각은?</div>
-<div class="a">어떻게 하면 더 예쁘게 보일까, 더 새로운 모습을 보여줄 수 있을까</div>
+    <div class="q">Q1. 요즘 가장 자주 하는 생각은?</div>
+    <div class="a">어떻게 하면 더 예쁘게 보일까, 더 새로운 모습을 보여줄 수 있을까</div>
 
-<div class="q">Q2. 아무도 안 볼 때 나는 어떤 사람?</div>
-<div class="a">조금 더 이기적인 사람일지도</div>
+    <div class="q">Q2. 아무도 안 볼 때 나는 어떤 사람?</div>
+    <div class="a">조금 더 이기적인 사람일지도</div>
 
-<div class="q">Q3. 스스로를 한 단어로 정의하면?</div>
-<div class="a">욕심</div>
+    <div class="q">Q3. 스스로를 한 단어로 정의하면?</div>
+    <div class="a">욕심</div>
 
-<div class="q">Q4. 나를 제일 기쁘게 하는 것</div>
-<div class="a">작은 것 하나하나 알아봐 주실 때, 혼자 조용히 생각 정리할 때</div>
+    <div class="q">Q4. 나를 제일 기쁘게 하는 것</div>
+    <div class="a">작은 것 하나하나 알아봐 주실 때, 혼자 조용히 생각 정리할 때</div>
 
-<div class="q">Q5. 나를 제일 불안하게 하는 것</div>
-<div class="a">실수, 준비한 걸 다 못 보여주는 것</div>
+    <div class="q">Q5. 나를 제일 불안하게 하는 것</div>
+    <div class="a">실수, 준비한 걸 다 못 보여주는 것</div>
 
-<div class="q">Q6. 꿈과 소중한 것 중 하나를 포기해야 한다면?</div>
-<div class="a">음… 선택하고 싶지 않아요</div>
+    <div class="q">Q6. 꿈과 소중한 것 중 하나를 포기해야 한다면?</div>
+    <div class="a">음… 선택하고 싶지 않아요</div>
 
-<div class="q">Q7. 나는 어떤 모습으로 기억되고 싶은지?</div>
-<div class="a">무대 위에서 가장 빛나고, 매순간 진심이었던 사람</div>
+    <div class="q">Q7. 나는 어떤 모습으로 기억되고 싶은지?</div>
+    <div class="a">무대 위에서 가장 빛나고, 매순간 진심이었던 사람</div>
 
+  </div>
 </div>
-</div>
-
 
 <!-- ================= 개인 기록 ================= -->
 <div class="btn" onclick="togglePanel(this)">▎개인 기록 <span class="star">✦</span></div>
 <div class="panel">
-<div class="profile-card">
+  <div class="profile-card">
 
-<div class="row"><div class="label">가족 정보</div><div class="value">부친, 여동생 (류유하/柳裕嘏), 남동생 (류강하/柳剛嘏)</div></div>
-<div class="row"><div class="label">식성</div><div class="value">좋아하는 음식: 한식, 국물 요리
+    <div class="row"><div class="label">가족 정보</div><div class="value">부친, 여동생 (류유하/柳裕嘏), 남동생 (류강하/柳剛嘏)</div></div>
+    <div class="row"><div class="label">식성</div><div class="value">좋아하는 음식: 한식, 국물 요리
 싫어하는 음식: 단 음식</div></div>
-<div class="row"><div class="label">위버스</div><div class="value">닉네임: 부귀영하
+    <div class="row"><div class="label">위버스</div><div class="value">닉네임: 부귀영하
 게시빈도: 中</div></div>
-<div class="row"><div class="label">인스타 ID</div><div class="value">@belowzero._.</div></div>
+    <div class="row"><div class="label">인스타 ID</div><div class="value">@belowzero._.</div></div>
 
-<div class="opinion">
-<div class="opinion-title">소견</div>
-<ul>
-<li>비공식적인 센터 역할입니다.</li>
-<li>아침잠 없습니다.</li>
-<li>추위 잘 안 탑니다. 옷차림 얇은 경우가 잦으니 추운 날씨에는 관리 요망합니다.</li>
-<li>가족 얘기 불편해 합니다. 언급하는 상황 발생 시 관여 및 제재 요망합니다.</li>
-<li>현재 가족들은 부산광역시 해운대구로 이사해 거주 중입니다.</li>
-</ul>
+    <div class="opinion">
+      <div class="opinion-title">소견</div>
+      <ul>
+        <li>비공식적인 센터 역할입니다.</li>
+        <li>아침잠 없습니다.</li>
+        <li>추위 잘 안 탑니다. 옷차림 얇은 경우가 잦으니 추운 날씨에는 관리 요망합니다.</li>
+        <li>가족 얘기 불편해 합니다. 언급하는 상황 발생 시 관여 및 제재 요망합니다.</li>
+        <li>현재 가족들은 부산광역시 해운대구로 이사해 거주 중입니다. 영하 부친은 영하에게 부담이 되고 싶지 않은 듯합니다.</li>
+      </ul>
+    </div>
+
+    <div class="opinion">
+      <div class="opinion-title">개인사</div>
+      <ul>
+        <li>8세: 모친 死</li>
+        <li>15세: 중소 소속사 연습생 합격</li>
+        <li>17세: 첫 아르바이트 시작, 중학교 중퇴 후 아르바이트+연습생 생활 병행</li>
+        <li>18세: 소속 중인 소속사 폐업, 가출 후 상경</li>
+        <li>19세: ST엔터테인먼트에 캐스팅</li>
+        <li>20세-21세: 고향 방문했으나 가족과 조우 실패</li>
+      </ul>
+    </div>
+
+  </div>
 </div>
 
-<div class="opinion">
-<div class="opinion-title">개인사</div>
-<ul>
-<li>8세: 모친 死</li>
-<li>15세: 중소 소속사 연습생 합격</li>
-<li>17세: 아르바이트+연습생 병행</li>
-<li>18세: 소속사 폐업, 가출 후 상경</li>
-<li>19세: ST엔터테인먼트 캐스팅</li>
-<li>20~21세: 고향 방문했으나 가족과 조우 실패</li>
-</ul>
-</div>
+<div class="notice">✦를 클릭하여 정보를 확인하세요</div>
 
-</div>
 </div>
 
 <script>
