@@ -21,7 +21,6 @@ body{
   display:flex;
   justify-content:center;
   padding:60px 16px 120px;
-
   background:linear-gradient(140deg,#00769D,#004F9D,#00769D,#004F9D);
   background-size:600% 600%;
   animation:bgmove 10s ease-in-out infinite;
@@ -56,33 +55,30 @@ body{
 .name{
   font-size:30px;
   font-weight:bold;
-  letter-spacing:2px; /* ⭐ 복구 */
+  letter-spacing:2px; /* ⭐ 유지 */
 }
-
 .sub{
   color:#FFEFA3;
   letter-spacing:3px;
   font-size:14px;
   margin-top:4px;
 }
-
 .role{
   text-align:center;
   font-size:14px;
   margin-top:10px;
   letter-spacing:2px;
 }
-
 .role strong{
   font-weight:900;
   color:#fff;
-  letter-spacing:2px; /* ⭐ 복구 */
+  letter-spacing:2px; /* ⭐ 유지 */
 }
 
 /* ================= 버튼 ================= */
 .btn{
   width:100%;
-  padding:16pxer118px;
+  padding:16px 18px;
   border-radius:6px;
   background:linear-gradient(90deg,#00BFFF,#0080FF);
   display:flex;
@@ -129,7 +125,7 @@ body{
   border-bottom:1px solid #ddd;
 }
 
-/* 항목 */
+/* 왼쪽 */
 .label{
   background:#FFD700;
   color:#000;
@@ -141,14 +137,14 @@ body{
   text-align:center;
 }
 
-/* 값 */
+/* 오른쪽 */
 .value{
   background:#fff;
   color:#000;
   padding:14px 14px;
   white-space:pre-line;
   line-height:1.55;
-  font-size:13.5px; /* ⭐ 살짝 축소 */
+  font-size:0.95em; /* ⭐ 살짝 축소 */
 }
 
 .value strong{
@@ -156,20 +152,6 @@ body{
   color:#000;
 }
 
-/* ⭐ 소견 한칸 스타일 */
-.value.note{
-  text-align:left;
-  line-height:1.75;
-}
-
-.value.note b{
-  display:block;
-  text-align:center;
-  font-weight:900;
-  margin-bottom:10px;
-}
-
-/* 노랑 배지 */
 .badge{
   background:#FFD700;
   padding:2px 8px;
@@ -178,20 +160,28 @@ body{
   color:#000;
 }
 
-/* 인터뷰 */
-.q{
-  background:#f1f1f1;
-  font-weight:bold;
-  color:#000;
-  padding:12px 14px;
-  font-size:13.5px;
-}
-.a{
+/* ================= ⭐ 소견 (완전 교체) ================= */
+.opinion{
   background:#fff;
   color:#000;
-  padding:12px 14px;
-  border-bottom:1px solid #ddd;
-  font-size:13.5px;
+  padding:18px;
+}
+
+.opinion-title{
+  text-align:center;
+  font-weight:900;
+  color:#000;
+  margin-bottom:12px;
+}
+
+.opinion ul{
+  padding-left:18px;
+  line-height:1.8; /* ⭐ 행간 증가 */
+  color:#000;
+}
+
+.opinion li{
+  color:#000;
 }
 
 /* ================= 안내 ================= */
@@ -219,27 +209,29 @@ body{
 LEAD VOCAL | LEAD DANCER
 </div>
 
-<!-- ================= 개인 기록 (소견 수정 예시만 보여줌) ================= -->
+<!-- ================= 개인 기록 ================= -->
 <div class="btn" onclick="togglePanel(this)">▎개인 기록 <span class="star">✦</span></div>
 <div class="panel">
   <div class="profile-card">
 
     <div class="row"><div class="label">가족 정보</div><div class="value">부친, 모친, 누나 (송제경/宋諸耿)</div></div>
+    <div class="row"><div class="label">식성</div><div class="value">좋아하는 음식: 육류, 어류
+싫어하는 음식: ×</div></div>
+    <div class="row"><div class="label">위버스</div><div class="value">닉네임: SEOHA
+게시 빈도: 多</div></div>
+    <div class="row"><div class="label">인스타 ID</div><div class="value">@song.s</div></div>
 
-    <!-- ⭐ 소견 한칸 -->
-    <div class="row">
-      <div class="label">소견</div>
-      <div class="value note">
-<b>소견</b>
-• 식사량 많습니다. 스스로 체중 조절하니 크게 관여할 필요 없습니다.
-• 아침잠 많은 편입니다. 본인이 알람 여러 개 맞춰두지만 중요한 일정 있을 시 확인 요망합니다.
-      </div>
+    <!-- ⭐ 수정된 소견 -->
+    <div class="opinion">
+      <div class="opinion-title">소견</div>
+      <ul>
+        <li>• 식사량 많습니다. 스스로 체중 조절하니 크게 관여할 필요 없습니다.</li>
+        <li>• 아침잠 많은 편입니다. 본인이 알람 여러 개 맞춰두지만 중요한 일정 있을 시 확인 요망합니다.</li>
+      </ul>
     </div>
 
   </div>
 </div>
-
-<div class="notice">✦를 클릭하여 정보를 확인하세요</div>
 
 </div>
 
