@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>신우 | NewBit</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+  color:#fff;
+  letter-spacing:.3px;
+}
+
+/* ================= 배경 ================= */
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:60px 16px 120px;
+  background:linear-gradient(140deg,#00769D,#004F9D,#00769D,#004F9D);
+  background-size:600% 600%;
+  animation:bgmove 10s ease-in-out infinite;
+}
+@keyframes bgmove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ================= 레이아웃 ================= */
+.container{
+  width:100%;
+  max-width:520px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+
+/* ================= 사진 ================= */
+.profile-img{
+  width:100%;
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 0 25px rgba(0,191,255,.4);
+}
+.profile-img img{ width:100%; display:block; }
+
+/* ================= 이름 ================= */
+.name{
+  font-size:30px;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+.sub{
+  color:#E6F2FF; /* 연한 하늘색 */
+  letter-spacing:3px;
+  font-size:14px;
+  margin-top:4px;
+}
+.role{
+  text-align:center;
+  font-size:14px;
+  margin-top:10px;
+  letter-spacing:2px;
+}
+.role strong{
+  font-weight:900;
+  color:#fff;
+}
+
+/* ================= 버튼 ================= */
+.btn{
+  width:100%;
+  padding:16px 18px;
+  border-radius:6px;
+  background:linear-gradient(90deg,#00BFFF,#0080FF);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+  box-shadow:0 0 15px rgba(0,191,255,.4);
+}
+.btn:hover{ transform:scale(1.03); }
+.btn:active{ transform:scale(.97); }
+
+.star{
+  font-size:24px;
+  animation:blink 2s infinite;
+}
+@keyframes blink{
+  0%,100%{opacity:.3;}
+  50%{opacity:1;}
+}
+.btn + .btn{ margin-top:16px; }
+
+/* ================= 패널 ================= */
+.panel{
+  width:100%;
+  overflow:hidden;
+  max-height:0;
+  transition:max-height .45s ease;
+  margin-top:2px;
+}
+
+/* 카드 */
+.profile-card{
+  background:rgba(255,255,255,.97);
+  border-radius:6px;
+  overflow:hidden;
+}
+
+/* 표 행 */
+.row{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  border-bottom:1px solid #ddd;
+}
+
+/* 항목칸 (파랑으로 변경) */
+.label{
+  background:#6495ED;
+  color:#000;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 6px;
+  text-align:center;
+}
+
+/* 내용칸 */
+.value{
+  background:#fff;
+  color:#000;
+  padding:14px;
+  white-space:pre-line;
+  line-height:1.55;
+  font-size:0.95em;
+}
+
+/* 배지 (파랑으로 변경) */
+.badge{
+  background:#6495ED;
+  padding:2px 8px;
+  border-radius:4px;
+  font-weight:bold;
+  color:#000;
+}
+
+/* 인터뷰 */
+.q{
+  background:#f1f1f1;
+  font-weight:bold;
+  color:#000;
+  padding:12px 14px;
+}
+.a{
+  background:#fff;
+  color:#000;
+  padding:12px 14px;
+  border-bottom:1px solid #ddd;
+  font-size:0.95em;
+}
+
+/* 소견 */
+.opinion{
+  background:#fff;
+  color:#000;
+  padding:18px;
+}
+.opinion-title{
+  text-align:center;
+  font-weight:900;
+  margin-bottom:12px;
+  color:#000;
+}
+.opinion ul{
+  padding-left:18px;
+  line-height:1.8;
+  color:#000;
+}
+.opinion li{
+  color:#000;
+}
+
+.notice{
+  margin-top:26px;
+  font-size:12px;
+  opacity:.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="profile-img">
+  <img src="images/Sinwoo.jpeg">
+</div>
+
+<div class="name">신우</div>
+<div class="sub">SINWOO</div>
+
+<div class="role">
+<strong>LEAD VOCAL</strong>
+</div>
+
+
+<!-- ================= 프로필 ================= -->
+<div class="btn" onclick="togglePanel(this)">▎프로필 <span class="star">✦</span></div>
+<div class="panel">
+<div class="profile-card">
+
+<div class="row"><div class="label">본명</div><div class="value">채신우 (蔡信優, Chae Sinwoo)</div></div>
+<div class="row"><div class="label">출생</div><div class="value">2006년 3월 3일 (20세)
+제주특별자치도 서귀포시</div></div>
+<div class="row"><div class="label">국적</div><div class="value">🇰🇷 대한민국</div></div>
+<div class="row"><div class="label">본관</div><div class="value">평강 채씨 (平康 蔡氏)</div></div>
+<div class="row"><div class="label">신체</div><div class="value">180cm</div></div>
+<div class="row"><div class="label">가족</div><div class="value">아버지, 어머니</div></div>
+<div class="row"><div class="label">소속사</div><div class="value">ST엔터테인먼트</div></div>
+<div class="row"><div class="label">소속 그룹</div><div class="value">NewBit</div></div>
+<div class="row"><div class="label">포지션</div><div class="value">리드보컬</div></div>
+<div class="row"><div class="label">상징</div><div class="value"><span class="badge">파랑</span> ｜ 🐈‍⬛</div></div>
+<div class="row"><div class="label">MBTI</div><div class="value">INTP</div></div>
+
+</div>
+</div>
+
+
+<!-- ================= 인터뷰 ================= -->
+<div class="btn" onclick="togglePanel(this)">▎인터뷰 <span class="star">✦</span></div>
+<div class="panel">
+<div class="profile-card">
+
+<div class="q">Q1. 요즘 가장 자주 하는 생각은?</div>
+<div class="a">졸리다</div>
+
+<div class="q">Q2. 아무도 안 볼 때 나는 어떤 사람?</div>
+<div class="a">지금이랑 똑같아요</div>
+
+<div class="q">Q3. 스스로를 한 단어로 정의하면?</div>
+<div class="a">나</div>
+
+<div class="q">Q4. 나를 제일 기쁘게 하는 것</div>
+<div class="a">침대</div>
+
+<div class="q">Q5. 나를 제일 불안하게 하는 것</div>
+<div class="a">낯선 환경</div>
+
+<div class="q">Q6. 꿈과 소중한 것 중 하나를 포기해야 한다면?</div>
+<div class="a">모르겠어요. 닥쳐봐야 알 것 같은데…</div>
+
+<div class="q">Q7. 나는 어떤 모습으로 기억되고 싶은지?</div>
+<div class="a">그냥 있는 그대로의 채신우</div>
+
+</div>
+</div>
+
+
+<!-- ================= 개인 기록 ================= -->
+<div class="btn" onclick="togglePanel(this)">▎개인 기록 <span class="star">✦</span></div>
+<div class="panel">
+<div class="profile-card">
+
+<div class="row"><div class="label">식성</div><div class="value">좋아하는 음식: 떡볶이, 자극적인 음식
+싫어하는 음식: 오이</div></div>
+
+<div class="row"><div class="label">위버스</div><div class="value">닉네임: SINWOO
+게시 빈도: 小小</div></div>
+
+<div class="row"><div class="label">인스타 ID</div><div class="value">@nb.chsinwoo</div></div>
+
+<div class="opinion">
+  <div class="opinion-title">소견</div>
+  <ul>
+    <li>생활력 부족합니다. 식사, 수면, 건강 등 전반적인 생활 관리 요망합니다.</li>
+    <li>활동기, 비활동기에 따라 체형 변화가 제일 잦은 멤버입니다. 체지방률보다 근육량 차이가 크니 적절한 운동량 조절 요망합니다.</li>
+    <li>졸릴 때 성격이 유해집니다.</li>
+  </ul>
+</div>
+
+</div>
+</div>
+
+<div class="notice">✦를 클릭하여 정보를 확인하세요</div>
+
+</div>
+
+<script>
+function togglePanel(btn){
+  const panel = btn.nextElementSibling;
+  panel.style.maxHeight =
+    panel.style.maxHeight ? null : panel.scrollHeight + "px";
+}
+</script>
+
+</body>
+</html>
