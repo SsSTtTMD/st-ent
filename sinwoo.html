@@ -20,7 +20,7 @@ body{
   min-height:100vh;
   display:flex;
   justify-content:center;
-  padding:60px 16px 120px;
+  padding:100px 16px 120px;
   background:linear-gradient(140deg,#00769D,#004F9D,#00769D,#004F9D);
   background-size:600% 600%;
   animation:bgmove 10s ease-in-out infinite;
@@ -195,10 +195,68 @@ body{
   font-size:12px;
   opacity:.7;
 }
+/* ================= ✅ NEW 상단 멤버 네비 ================= */
+.member-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  display:flex;
+  z-index:999;
+
+  background:linear-gradient(to bottom,#3a3a3a,#000); /* 진회색 → 검정 */
+  border-bottom:1px solid #555;
+
+  transition:transform .35s ease, opacity .35s ease;
+}
+
+/* 숨김용 */
+.member-nav.hide{
+  transform:translateY(-100%);
+  opacity:0;
+}
+
+.member-nav a{
+  flex:1;
+  padding:16px 0;
+  text-align:center;
+  text-decoration:none;
+
+  color:#00BFFF;
+  font-weight:bold;
+  letter-spacing:2px;
+
+  /* 네온 번짐 */
+  text-shadow:
+    0 0 6px #0080FF,
+    0 0 12px #0080FF;
+
+  border-right:1px solid #555;
+
+  transition:transform .08s ease;
+}
+
+/* 마지막 선 제거 */
+.member-nav a:last-child{
+  border-right:none;
+}
+
+/* ✅ 클릭/터치 모션 (볼록) */
+.member-nav a:active{
+  transform:scale(.92);
+}
 </style>
 </head>
 
 <body>
+
+<div class="member-nav">
+  <a href="seoha.html">서하</a>
+  <a href="ondo.html">온도</a>
+  <a href="yeongha.html">영하</a>
+  <a href="eun.html">은</a>
+  <a href="sinwoo.html">신우</a>
+</div>
 
 <div class="container">
 
@@ -301,6 +359,22 @@ function togglePanel(btn){
   panel.style.maxHeight =
     panel.style.maxHeight ? null : panel.scrollHeight + "px";
 }
+
+/* ================= 상단바 자동 숨김 ================= */
+let lastScroll = 0;
+const nav = document.querySelector(".member-nav");
+
+window.addEventListener("scroll", () => {
+  const current = window.scrollY;
+
+  if(current > lastScroll && current > 60){
+    nav.classList.add("hide");   // 아래로 스크롤 → 숨김
+  }else{
+    nav.classList.remove("hide"); // 위로 → 표시
+  }
+
+  lastScroll = current;
+});
 </script>
 
 </body>
