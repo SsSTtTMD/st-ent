@@ -23,9 +23,61 @@ body{display:flex;justify-content:center;align-items:center;min-height:100vh;bac
 .submenu div{background:rgba(255,255,255,0.15);padding:10px 0;margin-top:4px;cursor:pointer;transition:background .3s;}
 .submenu div:hover{background:rgba(255,255,255,0.3);}
 .footer{text-align:center;font-size:12px;margin-top:40px;opacity:0.7;}
+  /* 인트로 화면 */
+#intro{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,#9a9a9a,#4f4f4f,#8b8b8b);
+  background-size:300% 300%;
+  animation:bgmove 12s ease infinite;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+/* 로고 스탬프 효과 */
+.intro-logo{
+  width:140px;
+  opacity:0;
+  transform:scale(2);
+  animation:stamp 0.7s ease forwards;
+}
+
+/* 텍스트 슬라이드 */
+.intro-text{
+  margin-top:18px;
+  font-size:20px;
+  letter-spacing:4px;
+  opacity:0;
+  transform:translateY(20px);
+  animation:slideUp 0.6s ease forwards;
+  animation-delay:0.6s;
+}
+
+@keyframes stamp{
+  0%{opacity:0; transform:scale(2);}
+  60%{opacity:1; transform:scale(0.9);}
+  100%{opacity:1; transform:scale(1);}
+}
+
+@keyframes slideUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 </style>
 </head>
 <body>
+  <div id="intro">
+  <img src="images/ST.jpg" class="intro-logo">
+  <div class="intro-text">ST ENTERTAINMENT</div>
+</div>
 <div class="container">
   <div class="logo-wrap">
     <img src="images/ST.jpg" alt="ST Logo">
@@ -47,6 +99,18 @@ body{display:flex;justify-content:center;align-items:center;min-height:100vh;bac
   </div>
 </div>
 <script>
+  <script>
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("intro").style.opacity="0";
+    document.getElementById("intro").style.transition="0.6s";
+    
+    setTimeout(()=>{
+      document.getElementById("intro").style.display="none";
+    },600);
+    
+  },1800); 
+});
 const btnCompany=document.getElementById('btnCompany');
 const subCompany=document.getElementById('subCompany');
 btnCompany.onclick=()=>{subCompany.classList.toggle('show');}
