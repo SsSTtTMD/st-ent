@@ -66,15 +66,29 @@ body{
 }
 
 /* ================= 이름 ================= */
+.name,
+.sub{
+  width:100%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+}
+
 .name{
   font-size:30px;
   font-weight:bold;
   letter-spacing:2px;
+  height:40px;   /* ← 고정 */
 }
+
 .sub{
   color:#bfbfbf;
   letter-spacing:3px;
   font-size:14px;
+  height:22px;   /* ← 고정 (중요) */
   margin-top:4px;
 }
 .role{
