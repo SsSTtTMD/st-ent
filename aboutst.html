@@ -6,7 +6,7 @@
 <title>ABOUT ST</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;}
+{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif;}
 
 body{
   min-height:100vh;
@@ -28,7 +28,7 @@ body{
   margin:0 auto;
 }
 
-/* ☰ 버튼 */
+/ ☰ 버튼 /
 .menu-toggle{
   position:fixed;
   top:20px;
@@ -39,7 +39,7 @@ body{
   transition:.3s;
 }
 
-/* 오른쪽 슬라이드 패널 */
+/ 오른쪽 슬라이드 패널 /
 .side-menu{
   position:fixed;
   top:0;
@@ -80,20 +80,20 @@ body{
   filter:drop-shadow(0 0 14px rgba(255,255,255,0.6));
 }
 
-/* 굵은 구분선 */
+/ 굵은 구분선 /
 .hr-strong{
   border:none;
   height:2px;
   background:rgba(255,255,255,0.5);
-  margin:28px 0 32px;
+  margin:60px 0 60px;
 }
 
-/* 기본 구분선 */
+/ 기본 구분선 /
 .hr{
   border:none;
   height:1px;
   background:rgba(255,255,255,0.3);
-  margin:28px 0;
+  margin:50px 0;
 }
 
 h1{
@@ -102,21 +102,35 @@ h1{
   margin-bottom:18px;
 }
 
+/ 문단 간격 추가 /
 p{
   line-height:1.8;
   font-size:14px;
   opacity:.9;
+  margin-bottom:18px;
 }
 
 .section-title{
   font-size:20px;
   letter-spacing:4px;
-  margin:34px 0 12px;
+  margin:60px 0 18px;
 }
 
 .final{
-  margin-top:30px;
+  margin-top:40px;
   line-height:1.9;
+}
+
+/ 스크롤 등장 애니메이션 /
+.fade-up{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .9s ease;
+}
+
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
 }
 </style>
 </head>
@@ -139,36 +153,36 @@ p{
 
 <div class="container">
 
-<img src="images/ST.jpg" class="logo">
+<img src="images/ST.jpg" class="logo fade-up">
 
-<hr class="hr-strong">
+<hr class="hr-strong fade-up">
 
-<h1>The Originality</h1>
+<h1 class="fade-up">The Originality</h1>
 
-<p>
+<p class="fade-up">
 ST엔터테인먼트는 설립 이래 독보적인 원석을 발굴하고, 그들이 지닌 고유한 예술적 색채를 완성도 있게 구현해 내는 데 매진해 왔습니다. 아티스트가 가진 원형의 매력이 글로벌 무대에서 가장 눈부시게 빛날 수 있도록 체계적인 매니지먼트 솔루션을 제공합니다.
 </p>
 
-<hr class="hr">
+<hr class="hr fade-up">
 
-<div class="section-title">▎SELECTIVE</div>
-<p>
+<div class="section-title fade-up">▎SELECTIVE</div>
+<p class="fade-up">
 ST엔터테인먼트는 타고난 감각과 압도적인 역량의 정점을 지향합니다. 대중을 매료시키는 아우라와 아티스트로서 갖춰야 할 필수적인 자질을 입체적으로 분석하여 시대의 아이콘이 될 잠재력을 발굴합니다.
 </p>
 
-<div class="section-title">▎INTENSIVE</div>
-<p>
+<div class="section-title fade-up">▎INTENSIVE</div>
+<p class="fade-up">
 선발된 인재가 독보적인 아티스트로 거듭나기 위해 ST만의 집약적인 트레이닝 시스템을 가동합니다. 치열한 노력과 열정이 성과로 증명되는 과정을 전폭적으로 지원하고, 인재 개개인이 가진 역량의 밀도를 높여 최상의 퍼포먼스를 구현할 수 있는 기반을 다집니다.
 </p>
 
-<div class="section-title">▎CREATIVE</div>
-<p>
+<div class="section-title fade-up">▎CREATIVE</div>
+<p class="fade-up">
 고정된 틀에 갇히지 않는 창의적 진화를 추구합니다. 아티스트 고유의 정체성을 바탕으로 새로운 장르와 문화를 개척하여 글로벌 엔터테인먼트 시장에서 대체 불가능한 존재감을 확립하는 것이 ST엔터테인먼트가 지향하는 최종적인 지향점입니다.
 </p>
 
-<hr class="hr">
+<hr class="hr fade-up">
 
-<p class="final">
+<p class="final fade-up">
 ST엔터테인먼트는 신뢰와 전문성을 바탕으로 K-POP의 새로운 표준을 세워가겠습니다.<br><br>
 아티스트와 함께 호흡하며 지속 가능한 성장을 도모하는 ST엔터테인먼트는 투명한 시스템과 고도화된 프로듀싱 역량을 결합하여 전 세계 팬들에게 영감을 주는 콘텐츠를 선보입니다. 업계의 리더로서 책임감 있는 경영을 실천하며 엔터테인먼트 산업의 미래를 설계해 나가겠습니다.
 </p>
@@ -193,6 +207,21 @@ function toggleArtist(){
   const s=document.getElementById("artistSub");
   s.style.display = s.style.display==="block"?"none":"block";
 }
+
+/ 스크롤 시 문단 등장 */
+const faders=document.querySelectorAll('.fade-up');
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+faders.forEach(el=>{
+  observer.observe(el);
+});
 </script>
 
 </body>
