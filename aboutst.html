@@ -14,7 +14,6 @@ body{
   background-size:300% 300%;
   animation:bgmove 12s ease infinite;
   color:#f2f2f2;
-  padding:60px 24px;
 }
 
 @keyframes bgmove{
@@ -26,6 +25,7 @@ body{
 .container{
   max-width:760px;
   margin:0 auto;
+  padding:60px 24px;
 }
 
 /* ☰ 버튼 */
@@ -121,7 +121,7 @@ p{
 
 .footer-full{
   width:100%;
-  min-height:420px;
+  min-height:100vh;
   background:#000;
   color:#fff;
   display:flex;
@@ -143,16 +143,10 @@ p{
   flex-direction:column;
 }
 
-.logo-main{
-  font-size:54px;
-  font-weight:700;
-  letter-spacing:6px;
-}
-
-.logo-sub{
-  font-size:22px;
-  letter-spacing:8px;
-  margin-top:6px;
+.footer-logo{
+  font-size:42px;
+  letter-spacing:10px;
+  line-height:1.3;
 }
 
 .footer-info{
@@ -280,9 +274,9 @@ function toggleArtist(){
 
     <div class="footer-top">
       <div class="footer-logo">
-        <div class="logo-main">ST</div>
-        <div class="logo-sub">ENTERTAINMENT</div>
-      </div>
+  ST<br>
+  ENTERTAINMENT
+</div>
 
       <div class="footer-info">
         회사명︱㈜에스티엔터테인먼트<br>
