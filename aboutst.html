@@ -118,6 +118,85 @@ p{
   margin-top:30px;
   line-height:1.9;
 }
+
+.footer-full{
+  width:100%;
+  min-height:420px;
+  background:#000;
+  color:#fff;
+  display:flex;
+  align-items:center;
+}
+
+.footer-content{
+  width:100%;
+  padding:80px 80px 60px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:100%;
+}
+
+/* 상단 */
+.footer-top{
+  display:flex;
+  flex-direction:column;
+}
+
+.logo-main{
+  font-size:54px;
+  font-weight:700;
+  letter-spacing:6px;
+}
+
+.logo-sub{
+  font-size:22px;
+  letter-spacing:8px;
+  margin-top:6px;
+}
+
+.footer-info{
+  margin-top:28px;
+  font-size:16px;
+  opacity:0.8;
+  line-height:1.9;
+}
+
+/* 하단 */
+.footer-bottom{
+  margin-top:120px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.footer-icons{
+  display:flex;
+  gap:40px;
+}
+
+.footer-icons img{
+  width:48px;
+  opacity:0.85;
+  transition:.2s;
+}
+
+.footer-icons img:hover{
+  opacity:1;
+  transform:scale(1.1);
+}
+
+.footer-contact{
+  font-size:20px;
+  color:#fff;
+  text-decoration:none;
+  opacity:0.8;
+  transition:.2s;
+}
+
+.footer-contact:hover{
+  opacity:1;
+}
 </style>
 </head>
 <body>
@@ -195,5 +274,40 @@ function toggleArtist(){
 }
 </script>
 
+<section class="footer-full">
+
+  <div class="footer-content">
+
+    <div class="footer-top">
+      <div class="footer-logo">
+        <div class="logo-main">ST</div>
+        <div class="logo-sub">ENTERTAINMENT</div>
+      </div>
+
+      <div class="footer-info">
+        회사명︱㈜에스티엔터테인먼트<br>
+        대표︱설태오
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-icons">
+        <a href="https://youtube.com/@stentertalnment?si=mFt7j9-KUq0usbbg" target="_blank">
+          <img src="images/youtube.png" alt="youtube">
+        </a>
+
+        <a href="https://share.crack.wrtn.ai/k7eeeo" target="_blank">
+          <img src="images/crack.png" alt="crack">
+        </a>
+      </div>
+
+      <a class="footer-contact" href="https://open.kakao.com/me/STTMD" target="_blank">
+        문의 사항
+      </a>
+    </div>
+
+  </div>
+
+</section>
 </body>
 </html>
